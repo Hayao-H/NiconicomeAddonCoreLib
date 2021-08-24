@@ -11,16 +11,26 @@ declare global {
     const application: Application;
 
     /**
-     * fetch API（現状GETのみ）
+     * fetch API
      * @param url 取得したいページのURL
      * @param options オプション。
-     * @beta
      */
     function fetch(url: string, options: FetchOption | null): Promise<Response>;
 
     function parseHtml(source: string): ParentNode;
 }
 
+/**
+ * Niconicomeが提供するAPIのルートオブジェクトです
+ */
+export const application: Application;
+
+/**
+ * fetch API
+ * @param url 取得したいページのURL
+ * @param options オプション。
+ */
+export function fetch(url: string, options: FetchOption | null): Promise<Response>;
 
 /**
  * グローバルスコープに公開されている{@link application}変数のインターフェースです
