@@ -2,6 +2,7 @@ import { Log } from "./local/io/log";
 import { Output } from "./local/io/output";
 import { Hooks } from "./net/hooks/hooks";
 import { Response } from "./net/http/fetch/Response";
+import { Storage } from "./local/storage/storage";
 
 declare global {
 
@@ -54,6 +55,12 @@ export interface Application {
      * 使用するためにはlog権限を取得する必要があります。
      */
     log: Log | null;
+
+    /**
+     * Storage APIです</br>
+     * 使用するためにはstorage権限を取得する必要があります。
+     */
+    storage: Storage | null;
 }
 
 export interface FetchOption {
