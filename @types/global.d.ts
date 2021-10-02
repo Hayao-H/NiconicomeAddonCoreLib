@@ -61,6 +61,12 @@ export interface Application {
      * 使用するためにはstorage権限を取得する必要があります。
      */
     storage: Storage | null;
+
+    /**
+     * Resource APIです</br>
+     * 使用するためにはresource権限を取得する必要があります。
+     */
+    resource: { [relativePath: string]: string | null }
 }
 
 export interface FetchOption {
