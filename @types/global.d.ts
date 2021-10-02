@@ -3,6 +3,7 @@ import { Output } from "./local/io/output";
 import { Hooks } from "./net/hooks/hooks";
 import { Response } from "./net/http/fetch/Response";
 import { Storage } from "./local/storage/storage";
+import { Resource } from "./local/resource/resource";
 
 declare global {
 
@@ -66,7 +67,7 @@ export interface Application {
      * Resource APIです</br>
      * 使用するためにはresource権限を取得する必要があります。
      */
-    resource: { [relativePath: string]: string | null }
+    resource: Resource | null;
 }
 
 export interface FetchOption {
