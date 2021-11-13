@@ -23,5 +23,5 @@ export interface Tab {
      * タイトルを指定してタブを追加
      * @param title タブのタイトル
      */
-    add(title: string): TabHandle;
+    add(title: string): Promise<TabHandle>;
 }
