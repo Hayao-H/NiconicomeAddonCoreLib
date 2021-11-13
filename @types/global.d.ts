@@ -4,6 +4,7 @@ import { Hooks } from "./net/hooks/hooks";
 import { Response } from "./net/http/fetch/Response";
 import { Storage } from "./local/storage/storage";
 import { Resource } from "./local/resource/resource";
+import { Tab } from "./local/tab/tab";
 
 declare global {
 
@@ -68,6 +69,12 @@ export interface Application {
      * 使用するためにはresource権限を取得する必要があります。
      */
     resource: Resource | null;
+
+    /**
+     * Tab APIです</br>
+     * 使用するためにはtab権限を取得する必要があります。
+     */
+    tab: Tab | null;
 }
 
 export interface FetchOption {
