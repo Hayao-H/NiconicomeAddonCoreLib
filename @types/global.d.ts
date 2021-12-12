@@ -13,6 +13,7 @@ declare global {
      */
     const application: Application;
 
+
     /**
      * fetch API
      * @param url 取得したいページのURL
@@ -22,6 +23,11 @@ declare global {
 
     function parseHtml(source: string): ParentNode;
 }
+
+/**
+ * Webview2内でのみ利用可能なウィンドウ
+ */
+declare var window: Window;
 
 /**
  * Niconicomeが提供するAPIのルートオブジェクトです
@@ -104,4 +110,17 @@ export interface ParentNode {
 
 export interface Element {
     GetAttribute(name: string): string;
+}
+
+export interface Window {
+    chrome: Chrome;
+}
+
+export interface Chrome {
+    webview: Webview;
+}
+
+export interface Webview {
+    addEventListener(eventName: 'message', handler: (message: string) => void);
+    postMessage(message: string);
 }
