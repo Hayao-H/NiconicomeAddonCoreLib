@@ -1,0 +1,25 @@
+{
+  "name": "niconicomeaddoncorelib",
+  "version": "1.2.0",
+  "description": "Niconicome用アドオンの基本的な型情報やライブラリを提供します。",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "type-check": "tsc -noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hayao-H/NiconicomeAddonCoreLib.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hayao-H/NiconicomeAddonCoreLib/issues"
+  },
+  "homepage": "https://github.com/Hayao-H/NiconicomeAddonCoreLib#readme",
+  "devDependencies": {
+    "typescript": "^4.5.3"
+  }
+}

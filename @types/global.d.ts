@@ -13,6 +13,9 @@ declare global {
      */
     const application: Application;
 
+    interface Window {
+        chrome: Chrome;
+    }
 
     /**
      * fetch API
@@ -27,12 +30,12 @@ declare global {
 /**
  * Webview2内でのみ利用可能なウィンドウ
  */
-declare var window: Window;
+//declare var window: Window;
 
 /**
  * Niconicomeが提供するAPIのルートオブジェクトです
  */
-export const application: Application;
+declare var application: Application;
 
 /**
  * fetch API
@@ -112,15 +115,11 @@ export interface Element {
     GetAttribute(name: string): string;
 }
 
-export interface Window {
-    chrome: Chrome;
-}
-
-export interface Chrome {
+interface Chrome {
     webview: Webview;
 }
 
-export interface Webview {
+interface Webview {
     addEventListener(eventName: 'message', handler: (message: string) => void);
     postMessage(message: string);
 }

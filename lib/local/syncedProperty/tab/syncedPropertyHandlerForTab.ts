@@ -1,8 +1,6 @@
 import { SyncedProperty } from "../syncedProperty";
-import { TabHandle } from "../../../../@types/local/tab/tab"
 import { Message } from "../message";
 import { SyncedPropertyHandlerBase } from "../syncedPropertyHandlerBase";
-import { window } from "../../../../@types/global";
 
 export class SyncedPropertyHandlerForTab<T extends string | number | boolean> extends SyncedPropertyHandlerBase<T>{
 
