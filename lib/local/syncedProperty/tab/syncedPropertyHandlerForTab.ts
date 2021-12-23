@@ -22,8 +22,6 @@ export class SyncedPropertyHandlerForTab<T extends string | number | boolean> ex
 
             if (data.syncedProperty !== true) {
                 return;
-            } else if (!this.exists(data.name)) {
-                return
             }
 
             const p: SyncedProperty<T> = this.getProperty(data.name);

@@ -49,8 +49,6 @@ export class SyncedPropertyHanderForBackground<T extends string | number | boole
 
             if (data.syncedProperty !== true) {
                 return;
-            } else if (!this.exists(data.name)) {
-                return
             }
 
             const p: SyncedProperty<T> = this.getProperty(data.name);
