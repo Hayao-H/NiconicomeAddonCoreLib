@@ -4,10 +4,20 @@ import { Types } from "./types";
 
 
 export class SyncedPropertyHandlerBase<T extends string | number | boolean>{
+
+    /**
+     * コンストラクタ
+     * @param defaultValue getPropertyメソッドで、プロパティーが存在しない場合に返す初期値
+     */
+    public constructor(defaultValue: T) {
+        this.defaultValue = defaultValue;
+    }
+
     //#region  field
 
     private readonly props: { [key: string]: SyncedProperty<T> } = {};
 
+    private readonly defaultValue: T;
 
     //#endregion
 
@@ -21,7 +31,7 @@ export class SyncedPropertyHandlerBase<T extends string | number | boolean>{
     public getProperty(propertyName: string): SyncedProperty<T> {
 
         if (!this.exists(propertyName)) {
-            throw new Error(`同期プロパティー{${propertyName}}は存在しません。`);
+            this.add(propertyName, this.defaultValue);
         }
 
         return this.props[propertyName];

@@ -4,15 +4,19 @@ import { SyncedPropertyHandlerBase } from "../syncedPropertyHandlerBase";
 
 export class SyncedPropertyHandlerForTab<T extends string | number | boolean> extends SyncedPropertyHandlerBase<T>{
 
-    constructor() {
-        super();
+    /**
+     * コンストラクタ
+     * @param defaultValue getPropertyメソッドで、プロパティーが存在しない場合に返す初期値
+     */
+    constructor(defaultValue: T) {
+        super(defaultValue);
         this.subscribeMessage();
     }
 
     //#region  override
     protected subscribeMessage() {
 
-        window.chrome.webview.addEventListener('message', (message:string)=>{
+        window.chrome.webview.addEventListener('message', (message: string) => {
 
             const data: Message = JSON.parse(message) as Message;
 
