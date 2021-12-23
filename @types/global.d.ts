@@ -115,6 +115,6 @@ interface Chrome {
 }
 
 interface Webview {
-    addEventListener(eventName: 'message', handler: (message: string) => void);
+    addEventListener(eventName: 'message', handler: (message: MessageEvent) => void);
     postMessage(message: string);
 }

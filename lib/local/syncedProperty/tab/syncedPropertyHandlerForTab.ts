@@ -16,9 +16,9 @@ export class SyncedPropertyHandlerForTab<T extends string | number | boolean> ex
     //#region  override
     protected subscribeMessage() {
 
-        window.chrome.webview.addEventListener('message', (message: string) => {
+        window.chrome.webview.addEventListener('message', (message: MessageEvent) => {
 
-            const data: Message = JSON.parse(message) as Message;
+            const data: Message = JSON.parse(message.data) as Message;
 
             if (data.syncedProperty !== true) {
                 return;
