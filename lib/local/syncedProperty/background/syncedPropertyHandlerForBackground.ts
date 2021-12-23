@@ -1,6 +1,6 @@
 import { SyncedProperty } from "../syncedProperty";
 import { TabHandle } from "../../../../@types/local/tab/tab"
-import { Message } from "../message";
+import { Message, notifyChange, requestData } from "../message";
 import { SyncedPropertyHandlerBase } from "../syncedPropertyHandlerBase";
 
 export class SyncedPropertyHanderForBackground<T extends string | number | boolean> extends SyncedPropertyHandlerBase<T> {
@@ -51,15 +51,22 @@ export class SyncedPropertyHanderForBackground<T extends string | number | boole
                 return;
             }
 
-            const p: SyncedProperty<T> = this.getProperty(data.name);
+            if (data.messageType === notifyChange) {
+                const p: SyncedProperty<T> = this.getProperty(data.name);
 
-            if (data.dataType !== p.valueType) {
-                return;
+                if (data.dataType !== p.valueType) {
+                    return;
+                }
+
+                const value: T = this.parse(data.data, data.dataType);
+                p.cancelSubscriptionOnce();
+                p.value = value;
+            } else if (data.messageType === requestData) {
+                for (let key in this.props) {
+                    this.postMessage(this.getProperty(key));
+                }
             }
 
-            const value: T = this.parse(data.data, data.dataType);
-            p.cancelSubscriptionOnce();
-            p.value = value;
 
         });
     }

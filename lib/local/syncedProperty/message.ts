@@ -8,6 +8,11 @@ export interface Message {
     syncedProperty: boolean;
 
     /**
+     * メッセージの種別
+     */
+    messageType:string;
+
+    /**
      * データ型
      */
     dataType: string;
@@ -23,3 +28,7 @@ export interface Message {
     name: string;
 
 }
+
+export const notifyChange = "notifyChange";
+
+export const requestData = "requestData";

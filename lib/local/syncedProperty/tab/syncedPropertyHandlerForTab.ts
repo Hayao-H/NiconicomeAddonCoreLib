@@ -1,5 +1,5 @@
 import { SyncedProperty } from "../syncedProperty";
-import { Message } from "../message";
+import { Message, requestData } from "../message";
 import { SyncedPropertyHandlerBase } from "../syncedPropertyHandlerBase";
 
 export class SyncedPropertyHandlerForTab<T extends string | number | boolean> extends SyncedPropertyHandlerBase<T>{
@@ -34,6 +34,16 @@ export class SyncedPropertyHandlerForTab<T extends string | number | boolean> ex
             p.cancelSubscriptionOnce();
             p.value = value;
         });
+
+        const message: Message = {
+            syncedProperty: true,
+            messageType: requestData,
+            dataType: "",
+            data: "",
+            name: ""
+        }
+
+        window.chrome.webview.postMessage(JSON.stringify(message));
     }
 
     protected postMessage(property: SyncedProperty<T>): void {

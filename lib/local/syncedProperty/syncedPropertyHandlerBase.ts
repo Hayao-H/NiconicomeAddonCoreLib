@@ -1,5 +1,5 @@
 import { SyncedProperty } from "./syncedProperty";
-import { Message } from "./message";
+import { Message, notifyChange } from "./message";
 import { Types } from "./types";
 
 
@@ -15,7 +15,7 @@ export class SyncedPropertyHandlerBase<T extends string | number | boolean>{
 
     //#region  field
 
-    private readonly props: { [key: string]: SyncedProperty<T> } = {};
+    protected readonly props: { [key: string]: SyncedProperty<T> } = {};
 
     private readonly defaultValue: T;
 
@@ -102,6 +102,7 @@ export class SyncedPropertyHandlerBase<T extends string | number | boolean>{
             dataType: property.valueType,
             data: property.value.toString(),
             name: property.name,
+            messageType: notifyChange
         };
 
         return JSON.stringify(message);
