@@ -1,4 +1,4 @@
-import { Thumbinfo } from "../../../../@types/net/hooks/types/thumbinfo";
+import { Thumbinfo } from "../../../../../@types/net/hooks/types/thumbinfo";
 import { Thumbnail } from "../json/watchpage/dataApiData";
 
 export class Thumbinfoimpl implements Thumbinfo {

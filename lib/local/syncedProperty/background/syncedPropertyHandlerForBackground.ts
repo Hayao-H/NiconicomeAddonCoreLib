@@ -1,5 +1,5 @@
 import { SyncedProperty } from "../syncedProperty";
-import { TabHandle } from "../../../../@types/local/tab/tab"
+import { TabHandle } from "../../../../../@types/local/tab/tab"
 import { Message } from "../message";
 import { SyncedPropertyHandlerBase } from "../syncedPropertyHandlerBase";
 

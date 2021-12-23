@@ -1,4 +1,4 @@
-import { TabHandle } from "../../../../@types/local/tab/tab";
+import { TabHandle } from "../../../../../@types/local/tab/tab";
 import { SyncedFunctionParameter } from "../parameter";
 import { SyncedFunctionBase } from "../syncedFunctionBase";
 

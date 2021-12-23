@@ -1,7 +1,7 @@
-import { DmcInfo } from "../../../../@types/net/hooks/types/dmcinfo";
-import { SessionInfo } from "../../../../@types/net/hooks/types/sessioninfo";
-import { Thread } from "../../../../@types/net/hooks/types/thread";
-import { Thumbinfo } from "../../../../@types/net/hooks/types/thumbinfo";
+import { DmcInfo } from "../../../../../@types/net/hooks/types/dmcinfo";
+import { SessionInfo } from "../../../../../@types/net/hooks/types/sessioninfo";
+import { Thread } from "../../../../../@types/net/hooks/types/thread";
+import { Thumbinfo } from "../../../../../@types/net/hooks/types/thumbinfo";
 import { SessionInfoImpl } from "./sessioninfo";
 import { Thumbinfoimpl } from "./thumbinfo";
 
