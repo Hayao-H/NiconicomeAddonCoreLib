@@ -45,7 +45,7 @@ export class SyncedPropertyHanderForBackground<T extends string | number | boole
     private subscribeMessage(tab: TabHandle) {
         tab.addMessageHandler((message: string) => {
 
-            const data: Message = JSON.parse(message) as Message;
+            const data: Message = JSON.parse(JSON.parse(message)) as Message;
 
             if (data.syncedProperty !== true) {
                 return;
