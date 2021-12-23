@@ -1,4 +1,4 @@
-import { TabHandle } from "../../../../../@types/local/tab/tab";
+import { TabHandle } from "../../../../@types/local/tab/tab";
 import { SyncedFunctionParameter } from "../parameter";
 import { SyncedFunctionBase } from "../syncedFunctionBase";
 
@@ -18,7 +18,7 @@ export class SyncedFunctionForBackground extends SyncedFunctionBase {
      */
     public addSyncedTab(tab: TabHandle): void {
         this.tabs.push(tab);
-        tab.addMessageHandler(message => this.onMessage(message));
+        tab.addMessageHandler((message: string) => this.onMessage(message));
     }
 
     /**

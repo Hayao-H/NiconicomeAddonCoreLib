@@ -1,4 +1,4 @@
-import { Thread } from "../../../../../@types/net/hooks/types/thread";
+import { Thread } from "../../../../@types/net/hooks/types/thread";
 
 export class ThreadImpl implements Thread {
     ID: number = 0;

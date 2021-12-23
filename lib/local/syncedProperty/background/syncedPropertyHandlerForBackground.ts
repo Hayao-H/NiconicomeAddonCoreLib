@@ -1,5 +1,5 @@
 import { SyncedProperty } from "../syncedProperty";
-import { TabHandle } from "../../../../../@types/local/tab/tab"
+import { TabHandle } from "../../../../@types/local/tab/tab"
 import { Message } from "../message";
 import { SyncedPropertyHandlerBase } from "../syncedPropertyHandlerBase";
 
@@ -41,9 +41,9 @@ export class SyncedPropertyHanderForBackground<T extends string | number | boole
     //#endregion
 
     //#region override
-    
+
     private subscribeMessage(tab: TabHandle) {
-        tab.addMessageHandler(message => {
+        tab.addMessageHandler((message: string) => {
 
             const data: Message = JSON.parse(message) as Message;
 
