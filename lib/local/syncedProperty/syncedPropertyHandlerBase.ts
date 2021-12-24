@@ -59,7 +59,7 @@ export class SyncedPropertyHandlerBase<T extends string | number | boolean>{
 
         const p = new SyncedProperty<T>(initiqalValue, propertyName);
         this.props[propertyName] = p;
-        p.subscribe(prop => this.postMessage(prop));
+        p.subscribe(prop => this.postMessage(prop), true);
 
         return true;
     }
