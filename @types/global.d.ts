@@ -30,7 +30,7 @@ declare global {
 /**
  * Niconicomeが提供するAPIのルートオブジェクトです
  */
-declare var application: Application;
+declare const application: Application;
 
 /**
  * fetch API
@@ -116,5 +116,5 @@ interface Chrome {
 
 interface Webview {
     addEventListener(eventName: 'message', handler: (message: MessageEvent) => void);
-    postMessage(message: object);
+    postMessage(message: object | string);
 }

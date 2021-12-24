@@ -1,5 +1,3 @@
-import { Types } from "./types";
-
 export interface Message {
 
     /**

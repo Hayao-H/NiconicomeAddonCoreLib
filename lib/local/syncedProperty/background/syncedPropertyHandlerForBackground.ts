@@ -1,5 +1,5 @@
 import { SyncedProperty } from "../syncedProperty";
-import { TabHandle } from "../../../../@types/local/tab/tab"
+import { TabHandle } from "../../../../@types/local/tab/tab";
 import { Message, notifyChange, requestData } from "../message";
 import { SyncedPropertyHandlerBase } from "../syncedPropertyHandlerBase";
 
@@ -62,7 +62,7 @@ export class SyncedPropertyHanderForBackground<T extends string | number | boole
                 p.cancelSubscriptionOnce();
                 p.value = value;
             } else if (data.messageType === requestData) {
-                for (let key in this.props) {
+                for (const key in this.props) {
                     this.postMessage(this.getProperty(key));
                 }
             }
@@ -73,7 +73,8 @@ export class SyncedPropertyHanderForBackground<T extends string | number | boole
 
     protected postMessage(property: SyncedProperty<T>): void {
 
-        const messageS = this.stringify(property);
+        const message = this.serialize(property);
+        const messageS = JSON.stringify(message);
 
         this.tabs.forEach(t => {
             t.postMessage(messageS);

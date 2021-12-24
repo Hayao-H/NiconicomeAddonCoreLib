@@ -41,16 +41,16 @@ export class SyncedPropertyHandlerForTab<T extends string | number | boolean> ex
             dataType: "",
             data: "",
             name: ""
-        }
+        };
 
-        window.chrome.webview.postMessage(JSON.stringify(message));
+        window.chrome.webview.postMessage(message);
     }
 
     protected postMessage(property: SyncedProperty<T>): void {
 
-        const messageS = this.stringify(property);
+        const message = this.serialize(property);
 
-        window.chrome.webview.postMessage(messageS);
+        window.chrome.webview.postMessage(message);
 
     }
 
