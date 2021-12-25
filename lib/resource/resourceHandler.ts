@@ -22,7 +22,7 @@ export class ResourceHandler {
             return this.caches[key];
         }
 
-        const data: string | null = application.resource.getResource(this.resourceKeys[key]);
+        const data: string | null = application.resource?.getResource(this.resourceKeys[key]) ?? null;
 
         if (cache && data !== null) {
             this.caches[key] = data;

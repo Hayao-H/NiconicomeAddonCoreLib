@@ -13,6 +13,10 @@ declare global {
      */
     const application: Application;
 
+    interface Window {
+        chrome: Chrome;
+    }
+
     /**
      * fetch API
      * @param url 取得したいページのURL
@@ -26,7 +30,7 @@ declare global {
 /**
  * Niconicomeが提供するAPIのルートオブジェクトです
  */
-export const application: Application;
+declare const application: Application;
 
 /**
  * fetch API
@@ -104,4 +108,13 @@ export interface ParentNode {
 
 export interface Element {
     GetAttribute(name: string): string;
+}
+
+interface Chrome {
+    webview: Webview;
+}
+
+interface Webview {
+    addEventListener(eventName: 'message', handler: (message: MessageEvent) => void);
+    postMessage(message: object | string);
 }
