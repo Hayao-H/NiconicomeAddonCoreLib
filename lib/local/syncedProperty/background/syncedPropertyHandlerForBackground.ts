@@ -54,11 +54,12 @@ export class SyncedPropertyHanderForBackground<T extends string | number | boole
             if (data.messageType === notifyChange) {
                 const p: SyncedProperty<T> = this.getProperty(data.name);
 
-                if (data.dataType !== p.valueType) {
+                const value: T | null = this.parse(data.data);
+
+                if (value === null) {
                     return;
                 }
 
-                const value: T = this.parse(data.data, data.dataType);
                 p.cancelSubscriptionOnce();
                 p.value = value;
             } else if (data.messageType === requestData) {

@@ -3,7 +3,7 @@ import { Message, notifyChange } from "./message";
 import { Types } from "./types";
 
 
-export class SyncedPropertyHandlerBase<T extends string | number | boolean>{
+export class SyncedPropertyHandlerBase<T>{
 
     /**
      * コンストラクタ
@@ -86,22 +86,22 @@ export class SyncedPropertyHandlerBase<T extends string | number | boolean>{
         property.name.toString();
     }
 
-    protected parse(data: string, dType: string): T {
+    protected parse(data: string): T | null {
+        let parsed: T;
 
-        if (dType === Types.String) {
-            return data as T;
-        } else if (dType === Types.Boolean) {
-            return (data === "true") as T;
-        } else {
-            return Number.parseInt(data) as T;
+        try {
+            parsed = JSON.parse(data) as T;
+        } catch {
+            return null;
         }
+
+        return parsed;
     }
 
     protected serialize(property: SyncedProperty<T>): Message {
         const message: Message = {
             syncedProperty: true,
-            dataType: property.valueType,
-            data: property.value.toString(),
+            data:JSON.stringify(property.value),
             name: property.name,
             messageType: notifyChange
         };
