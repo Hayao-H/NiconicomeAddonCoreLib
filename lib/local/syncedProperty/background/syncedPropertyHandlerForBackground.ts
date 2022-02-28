@@ -3,7 +3,7 @@ import { TabHandle } from "../../../../@types/local/tab/tab";
 import { Message, notifyChange, requestData } from "../message";
 import { SyncedPropertyHandlerBase } from "../syncedPropertyHandlerBase";
 
-export class SyncedPropertyHanderForBackground<T extends string | number | boolean> extends SyncedPropertyHandlerBase<T> {
+export class SyncedPropertyHanderForBackground<T> extends SyncedPropertyHandlerBase<T> {
 
     //#region  field
 

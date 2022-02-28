@@ -2,7 +2,7 @@ import { SyncedProperty } from "../syncedProperty";
 import { Message, requestData } from "../message";
 import { SyncedPropertyHandlerBase } from "../syncedPropertyHandlerBase";
 
-export class SyncedPropertyHandlerForTab<T extends string | number | boolean> extends SyncedPropertyHandlerBase<T>{
+export class SyncedPropertyHandlerForTab<T> extends SyncedPropertyHandlerBase<T>{
 
     /**
      * コンストラクタ
