@@ -1,18 +1,24 @@
 export interface Message {
 
+
+    /**
+     * SyncedEventであるかどうか
+     */
+    isSyncedEvent: boolean;
+
     /**
      * メッセージタイプ
      */
-    MessageType: "syncedEvent";
+    messageType: "eventDispatch";
 
     /**
      * イベント名
      */
-    EventName: string;
+    eventName: string;
 
     /**
      * イベントの引数
      */
-    SerializedEventData: string | null;
+    serializedEventData: string | null;
 
 }

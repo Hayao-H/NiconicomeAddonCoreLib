@@ -1,3 +1,5 @@
+import { JsonUtils } from "../../utils/jsonUtils";
+
 export interface ParamData {
 
     readonly param: string;
@@ -38,7 +40,7 @@ export class SyncedFunctionParameter {
         if (this.exists(name)) return;
 
 
-        const p: ParamData = { param: JSON.stringify(param), name: name };
+        const p: ParamData = { param: JsonUtils.serialize(param), name: name };
         this.innnerParams.push(p);
 
     }
@@ -65,7 +67,7 @@ export class SyncedFunctionParameter {
         let data: T;
 
         try {
-            data = JSON.parse(p.param) as T;
+            data = JsonUtils.deserialize<T>(p.param) as T;
         } catch {
             return null;
         }

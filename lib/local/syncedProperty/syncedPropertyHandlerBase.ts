@@ -1,6 +1,6 @@
 import { SyncedProperty } from "./syncedProperty";
 import { Message, notifyChange } from "./message";
-import { Types } from "./types";
+import { JsonUtils } from "../../utils/jsonUtils";
 
 
 export class SyncedPropertyHandlerBase<T>{
@@ -90,7 +90,7 @@ export class SyncedPropertyHandlerBase<T>{
         let parsed: T;
 
         try {
-            parsed = JSON.parse(data) as T;
+            parsed = JsonUtils.deserialize<T>(data);
         } catch {
             return null;
         }
@@ -101,7 +101,7 @@ export class SyncedPropertyHandlerBase<T>{
     protected serialize(property: SyncedProperty<T>): Message {
         const message: Message = {
             syncedProperty: true,
-            data:JSON.stringify(property.value),
+            data:JsonUtils.serialize(property.value),
             name: property.name,
             messageType: notifyChange
         };

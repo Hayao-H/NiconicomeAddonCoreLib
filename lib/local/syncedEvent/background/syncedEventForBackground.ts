@@ -1,4 +1,5 @@
 import { TabHandle } from "../../../../@types/local/tab/tab";
+import { JsonUtils } from "../../../utils/jsonUtils";
 import { Message } from "../message";
 import { SyncedEventBase } from "../syncedEventBase";
 
@@ -15,15 +16,15 @@ export class SyncedEventForBackground extends SyncedEventBase {
      */
     private receiveEVent(message: string): void {
 
-        const m: Message = JSON.parse(message);
-        if (m.MessageType !== "syncedEvent") {
+        const m: Message = JsonUtils.deserialize<Message>(message);
+        if (!m.isSyncedEvent) {
             return;
         }
 
-        if (m.SerializedEventData === null) {
-            this.dispatch(m.EventName, null);
+        if (m.serializedEventData === null) {
+            this.dispatch(m.eventName, null);
         } else {
-            this.dispatch(m.EventName, JSON.parse(m.SerializedEventData));
+            this.dispatch(m.eventName, JsonUtils.deserialize<unknown>(m.serializedEventData));
         }
     }
 
@@ -39,9 +40,9 @@ export class SyncedEventForBackground extends SyncedEventBase {
     public fire(eventName: string, arg: unknown): void
     public fire(eventName: string): void
     public fire(eventName: string, arg: unknown | undefined = undefined): void {
-        const data: null | string = arg === undefined ? null : JSON.stringify(arg);
-        const message: Message = { MessageType: "syncedEvent", EventName: eventName, SerializedEventData: data };
-        const messageS = JSON.stringify(message);
+        const data: null | string = arg === undefined ? null : JsonUtils.serialize(arg);
+        const message: Message = { isSyncedEvent: true, messageType: "eventDispatch", eventName: eventName, serializedEventData: data };
+        const messageS = JsonUtils.serialize(message);
 
         this.syncedTabs.forEach(tab => tab.postMessage(messageS));
 
