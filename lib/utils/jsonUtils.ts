@@ -6,12 +6,12 @@ export class JsonUtils {
      * @returns JSONからデシリアライズされたオブジェクト
      */
     public static deserialize<T>(source: string): T {
-        return JSON.parse(source, str => {
-            if (typeof (str) == "string" &&
-                str.match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/)) {
-                return new Date(Date.parse(str));
+        return JSON.parse(source, (key, value) => {
+            if (typeof (value) == "string" &&
+                value.match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/)) {
+                return new Date(Date.parse(value));
             }
-            return str;
+            return value;
         });
     }
 
@@ -20,7 +20,7 @@ export class JsonUtils {
      * @param data オブジェクト
      * @returns JSON形式にシリアライズされた文字列
      */
-    public static serialize<T>(data:T):string{
+    public static serialize<T>(data: T): string {
         return JSON.stringify(data);
     }
 }
