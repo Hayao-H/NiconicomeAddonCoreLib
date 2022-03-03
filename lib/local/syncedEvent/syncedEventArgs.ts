@@ -1,10 +1,10 @@
 export class SyncedEventArgs {
     constructor(data: unknown) {
-        this._data = data;
+        this.data = data;
     }
 
     /**
      * イベントデータ
      */
-    private readonly _data: unknown;
+    public readonly data: unknown;
 }
