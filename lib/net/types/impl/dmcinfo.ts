@@ -2,6 +2,7 @@ import { DmcInfo } from "../../../../@types/net/hooks/types/dmcinfo";
 import { SessionInfo } from "../../../../@types/net/hooks/types/sessioninfo";
 import { Tag } from "../../../../@types/net/hooks/types/tag";
 import { Target } from "../../../../@types/net/hooks/types/target";
+import { Thread } from "../../../../@types/net/hooks/types/thread";
 import { Thumbinfo } from "../../../../@types/net/hooks/types/thumbinfo";
 import { SessionInfoImpl } from "./sessioninfo";
 import { Thumbinfoimpl } from "./thumbinfo";
@@ -34,5 +35,6 @@ export class DmcinfoImpl implements DmcInfo {
     DownloadStartedOn: Date = new Date();
     SessionInfo: SessionInfo = new SessionInfoImpl();
     CommentTargets: Target[] = [];
+    CommentThreads: Thread[] = [];
     ThumbInfo: Thumbinfo = new Thumbinfoimpl();
 }
