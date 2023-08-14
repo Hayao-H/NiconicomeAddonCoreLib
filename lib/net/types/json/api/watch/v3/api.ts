@@ -3,11 +3,11 @@ export interface WatchAPIV3 {
 }
 
 export interface Data {
-    channel: Channel
+    channel: Channel | null;
     client: Client
     comment: Comment
-    media: Media
-    owner: Owner
+    media: Media | null;
+    owner: Owner | null;
     system: System
     tag: Tag
     video: Video
@@ -55,7 +55,7 @@ export interface Target {
 }
 
 export interface Media {
-    delivery: Delivery
+    delivery: Delivery | null;
 }
 
 export interface Delivery {
