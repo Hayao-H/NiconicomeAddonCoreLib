@@ -20,7 +20,6 @@ export class DmcinfoImpl implements DmcInfo {
     Threadkey = "";
     CommentLanguage = "";
     TrackingID = "";
-    KeyURL = undefined;
     ViewCount = 0;
     CommentCount = 0;
     MylistCount = 0;

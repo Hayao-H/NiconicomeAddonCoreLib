@@ -32,5 +32,4 @@ export interface DmcInfo {
     IsPremium: boolean;
     IsPeakTime: boolean;
     TrackingID: string;
-    KeyURL: string | undefined;
 }
