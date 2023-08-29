@@ -31,4 +31,6 @@ export interface DmcInfo {
     ThumbInfo: Thumbinfo;
     IsPremium: boolean;
     IsPeakTime: boolean;
+    TrackingID: string;
+    KeyURL: string | undefined;
 }
