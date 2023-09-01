@@ -85,7 +85,7 @@ export interface FetchOption {
     /**
      * メソッド。デフォルトはGETです。
      */
-    method?: 'POST' | 'GET',
+    method?: 'POST' | 'GET' | 'OPTION',
 
     /**
      * 認証情報を含める。 
