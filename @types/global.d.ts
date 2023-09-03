@@ -85,7 +85,7 @@ export interface FetchOption {
     /**
      * メソッド。デフォルトはGETです。
      */
-    method?: 'POST' | 'GET' | 'OPTION',
+    method?: 'POST' | 'GET',
 
     /**
      * 認証情報を含める。 
@@ -99,6 +99,11 @@ export interface FetchOption {
      * POSTメソッドの場合必須です。
      */
     body?: string,
+
+    /**
+     * 追加のHeader
+     */
+    headers?: { [key: string]: string };
 }
 
 export interface ParentNode {
