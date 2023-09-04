@@ -1,5 +1,6 @@
 import { SessionInfo } from "./sessioninfo";
-import { Thread } from "./thread";
+import { Tag } from "./tag";
+import { Target } from "./target";
 import { Thumbinfo } from "./thumbinfo";
 
 export interface DmcInfo {
@@ -7,25 +8,28 @@ export interface DmcInfo {
     Id: string;
     Owner: string;
     OwnerID: number;
-    Userkey: string;
     UserId: string;
     ChannelID: string;
     ChannelName: string;
     Description: string;
+    CommentServer: string;
+    Threadkey: string;
+    CommentLanguage: string;
     ViewCount: number;
     CommentCount: number;
     MylistCount: number;
     LikeCount: number;
     Duration: number;
-    Tags: string[];
+    Tags: Tag[];
     IsDownloadable: boolean;
     IsEncrypted: boolean;
     IsOfficial: boolean;
     UploadedOn: Date;
     DownloadStartedOn: Date;
     SessionInfo: SessionInfo;
-    CommentThreads: Thread[];
+    CommentTargets: Target[];
     ThumbInfo: Thumbinfo;
-    IsPremium:boolean;
-    IsPeakTime:boolean;
+    IsPremium: boolean;
+    IsPeakTime: boolean;
+    TrackID: string;
 }

@@ -1,6 +1,7 @@
 import { DmcInfo } from "../../../../@types/net/hooks/types/dmcinfo";
 import { SessionInfo } from "../../../../@types/net/hooks/types/sessioninfo";
-import { Thread } from "../../../../@types/net/hooks/types/thread";
+import { Tag } from "../../../../@types/net/hooks/types/tag";
+import { Target } from "../../../../@types/net/hooks/types/target";
 import { Thumbinfo } from "../../../../@types/net/hooks/types/thumbinfo";
 import { SessionInfoImpl } from "./sessioninfo";
 import { Thumbinfoimpl } from "./thumbinfo";
@@ -15,12 +16,16 @@ export class DmcinfoImpl implements DmcInfo {
     ChannelID = "";
     ChannelName = "";
     Description = "";
+    CommentServer = "";
+    Threadkey = "";
+    CommentLanguage = "";
+    TrackID = "";
     ViewCount = 0;
     CommentCount = 0;
     MylistCount = 0;
     LikeCount = 0;
     Duration = 0;
-    Tags: string[] = [];
+    Tags: Tag[] = [];
     IsDownloadable = false;
     IsEncrypted = false;
     IsOfficial = false;
@@ -29,6 +34,6 @@ export class DmcinfoImpl implements DmcInfo {
     UploadedOn: Date = new Date();
     DownloadStartedOn: Date = new Date();
     SessionInfo: SessionInfo = new SessionInfoImpl();
-    CommentThreads: Thread[] = [];
+    CommentTargets: Target[] = [];
     ThumbInfo: Thumbinfo = new Thumbinfoimpl();
 }

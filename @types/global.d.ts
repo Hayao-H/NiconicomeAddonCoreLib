@@ -2,6 +2,9 @@ import { Log } from "./local/io/log";
 import { Output } from "./local/io/output";
 import { Hooks } from "./net/hooks/hooks";
 import { Response } from "./net/http/fetch/Response";
+import { Storage } from "./local/storage/storage";
+import { Resource } from "./local/resource/resource";
+import { Tab } from "./local/tab/tab";
 
 declare global {
 
@@ -9,6 +12,10 @@ declare global {
      * Niconicomeが提供するAPIのルートオブジェクトです
      */
     const application: Application;
+
+    interface Window {
+        chrome: Chrome;
+    }
 
     /**
      * fetch API
@@ -23,7 +30,7 @@ declare global {
 /**
  * Niconicomeが提供するAPIのルートオブジェクトです
  */
-export const application: Application;
+declare const application: Application;
 
 /**
  * fetch API
@@ -54,6 +61,24 @@ export interface Application {
      * 使用するためにはlog権限を取得する必要があります。
      */
     log: Log | null;
+
+    /**
+     * Storage APIです</br>
+     * 使用するためにはstorage権限を取得する必要があります。
+     */
+    storage: Storage | null;
+
+    /**
+     * Resource APIです</br>
+     * 使用するためにはresource権限を取得する必要があります。
+     */
+    resource: Resource | null;
+
+    /**
+     * Tab APIです</br>
+     * 使用するためにはtab権限を取得する必要があります。
+     */
+    tab: Tab | null;
 }
 
 export interface FetchOption {
@@ -74,6 +99,11 @@ export interface FetchOption {
      * POSTメソッドの場合必須です。
      */
     body?: string,
+
+    /**
+     * 追加のHeader
+     */
+    headers?: { [key: string]: string };
 }
 
 export interface ParentNode {
@@ -83,4 +113,13 @@ export interface ParentNode {
 
 export interface Element {
     GetAttribute(name: string): string;
+}
+
+interface Chrome {
+    webview: Webview;
+}
+
+interface Webview {
+    addEventListener(eventName: 'message', handler: (message: MessageEvent) => void);
+    postMessage(message: object | string);
 }

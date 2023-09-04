@@ -12,4 +12,6 @@ export interface SessionInfo {
     Priority: number;
     Videos: string[]
     Audios: string[]
+    KeyURL: string | null;
+    EncryptedKey: string | null;
 }
