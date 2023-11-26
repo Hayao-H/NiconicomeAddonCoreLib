@@ -1,10 +1,10 @@
-import { Log } from "./local/io/log";
-import { Output } from "./local/io/output";
-import { Hooks } from "./net/hooks/hooks";
-import { Response } from "./net/http/fetch/Response";
-import { Storage } from "./local/storage/storage";
-import { Resource } from "./local/resource/resource";
-import { Tab } from "./local/tab/tab";
+import { Log } from "./local/io/log.d.ts";
+import { Output } from "./local/io/output.d.ts";
+import { Hooks } from "./net/hooks/hooks.ts";
+import { Response } from "./net/http/fetch/Response.d.ts";
+import { Storage } from "./local/storage/storage.d.ts";
+import { Resource } from "./local/resource/resource.d.ts";
+import { Tab } from "./local/tab/tab.d.ts";
 
 declare global {
 
