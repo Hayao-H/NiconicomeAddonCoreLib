@@ -12,6 +12,7 @@ export interface Data {
   tag: Tag;
   video: Video;
   viewer: Viewer;
+  videoAds: VideoAds;
 }
 
 export interface Channel {
@@ -190,4 +191,12 @@ export interface Viewer {
   nickname: string;
   isPremium: boolean;
   allowSensitiveContents: boolean;
+}
+
+export interface VideoAds {
+  additionalParams: AdditionalParams;
+}
+
+export interface AdditionalParams {
+  watchTrackId: string;
 }
