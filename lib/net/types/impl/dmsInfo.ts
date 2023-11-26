@@ -7,3 +7,18 @@ export class DMSInfoImpl implements DMSInfo {
     public audios: AudioStream[],
   ) {}
 }
+
+export class VideoStreamImpl implements VideoStream {
+  constructor(
+    public id: string,
+    public height: number,
+    public audioQualityLevel: number,
+  ) {}
+}
+
+export class AudioStreamImpl implements AudioStream {
+  constructor(
+    public id: string,
+    public audioQualityLevel: number,
+  ) {}
+}

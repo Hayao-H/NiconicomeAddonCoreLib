@@ -7,8 +7,10 @@ export interface DMSInfo {
 export interface VideoStream {
   id: string;
   height: number;
+  audioQualityLevel: number;
 }
 
 export interface AudioStream {
   id: string;
+  audioQualityLevel: number;
 }
