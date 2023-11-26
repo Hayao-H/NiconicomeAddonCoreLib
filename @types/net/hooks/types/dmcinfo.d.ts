@@ -1,7 +1,8 @@
-import { SessionInfo } from "./sessioninfo";
-import { Tag } from "./tag";
-import { Target } from "./target";
-import { Thumbinfo } from "./thumbinfo";
+import { DMSInfo } from "./dmsInfo.d.ts";
+import { SessionInfo } from "./sessioninfo.d.ts";
+import { Tag } from "./tag.d.ts";
+import { Target } from "./target.d.ts";
+import { Thumbinfo } from "./thumbinfo.d.ts";
 
 export interface DmcInfo {
   Title: string;
@@ -27,7 +28,7 @@ export interface DmcInfo {
   UploadedOn: Date;
   DownloadStartedOn: Date;
   SessionInfo: SessionInfo;
-  DmsInfo: DmsInfo;
+  DmsInfo: DMSInfo;
   CommentTargets: Target[];
   ThumbInfo: Thumbinfo;
   IsPremium: boolean;

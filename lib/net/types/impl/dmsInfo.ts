@@ -1,4 +1,4 @@
-import { AudioStream, DMSInfo, VideoStream } from "../../../../@types/net/hooks/types/dmsInfo";
+import { AudioStream, DMSInfo, VideoStream } from "../../../../@types/net/hooks/types/dmsInfo.d.ts";
 
 export class DMSInfoImpl implements DMSInfo {
   constructor(

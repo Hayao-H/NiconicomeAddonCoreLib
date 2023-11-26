@@ -1,4 +1,4 @@
-import { SessionInfo } from "../../../../@types/net/hooks/types/sessioninfo";
+import { SessionInfo } from "../../../../@types/net/hooks/types/sessioninfo.d.ts";
 
 export class SessionInfoImpl implements SessionInfo {
     RecipeId = "";
