@@ -20,5 +20,6 @@ export class AudioStreamImpl implements AudioStream {
   constructor(
     public id: string,
     public audioQualityLevel: number,
+    public isAValiable: boolean,
   ) {}
 }

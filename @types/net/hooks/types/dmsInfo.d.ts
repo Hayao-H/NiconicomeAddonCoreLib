@@ -13,4 +13,5 @@ export interface VideoStream {
 export interface AudioStream {
   id: string;
   audioQualityLevel: number;
+  isAValiable: boolean;
 }
