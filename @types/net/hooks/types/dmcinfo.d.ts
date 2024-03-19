@@ -1,5 +1,5 @@
 import { DMSInfo } from "./dmsInfo.d.ts";
-import { SessionInfo } from "./sessioninfo.d.ts";
+import { SessionInfo } from "./sessionInfo.d.ts";
 import { Tag } from "./tag.d.ts";
 import { Target } from "./target.d.ts";
 import { Thumbinfo } from "./thumbinfo.d.ts";
@@ -34,4 +34,5 @@ export interface DmcInfo {
   IsPremium: boolean;
   IsPeakTime: boolean;
   TrackID: string;
+  IsDMS: boolean;
 }

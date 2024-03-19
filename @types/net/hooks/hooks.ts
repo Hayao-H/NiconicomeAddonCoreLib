@@ -1,4 +1,4 @@
-import { DmcInfo } from "./types/dmcinfo.d.ts";
+import { DmcInfo } from "./types/dmcInfo.d.ts";
 import { NiconicoSessionInfo } from "./types/niconicoSessionInfo.d.ts";
 
 export interface Hooks {

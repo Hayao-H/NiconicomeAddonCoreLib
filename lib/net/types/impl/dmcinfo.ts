@@ -1,5 +1,5 @@
-import { DmcInfo } from "../../../../@types/net/hooks/types/dmcinfo.d.ts";
-import { SessionInfo } from "../../../../@types/net/hooks/types/sessioninfo.d.ts";
+import { DmcInfo } from "../../../../@types/net/hooks/types/dmcInfo.d.ts";
+import { SessionInfo } from "../../../../@types/net/hooks/types/sessionInfo.d.ts";
 import { Tag } from "../../../../@types/net/hooks/types/tag.d.ts";
 import { Target } from "../../../../@types/net/hooks/types/target.d.ts";
 import { Thumbinfo } from "../../../../@types/net/hooks/types/thumbinfo.d.ts";
@@ -33,6 +33,7 @@ export class DmcinfoImpl implements DmcInfo {
   IsOfficial = false;
   IsPeakTime = false;
   IsPremium = false;
+  IsDMS = false;
   UploadedOn: Date = new Date();
   DownloadStartedOn: Date = new Date();
   SessionInfo: SessionInfo = new SessionInfoImpl();
