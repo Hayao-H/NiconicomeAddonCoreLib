@@ -146,6 +146,11 @@ export interface Element {
    * @param selector 
    */
   QuerySelectorAll(selector: string): Element[];
+
+  /**
+   * テキストを取得
+   */
+  InnerHtml: string;
 }
 
 interface Chrome {
