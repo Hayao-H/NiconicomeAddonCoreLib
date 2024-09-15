@@ -1,6 +1,5 @@
 import { DmcInfo } from "./types/dmcInfo.d.ts";
 import { NiconicoSessionInfo } from "./types/niconicoSessionInfo.d.ts";
-import { SearchResult } from "./types/searchResult.d.ts";
 
 export interface Hooks {
     /**
@@ -27,27 +26,6 @@ export interface Hooks {
      */
     registerVideoInfoFunction(
         func: (videoID: string, trackID: string) => Promise<DmcInfo>,
-    ): void;
-
-    /**
-     * 動画検索関数を登録する
-     * @param func 検索関数
-     * @remarks 登録する関数はPromiseを返す必要があります。
-     * @remarks 例えば、アロー関数を登録する場合はasyncでマークしてください。
-     */
-    registerSearchFunction(
-        func: (
-            param: string,
-            page: number,
-            type: "tag" | "keyWord",
-            orderBy:
-                | "viewCount"
-                | "postAt"
-                | "commentCount"
-                | "mylistCount"
-                | "duration",
-            order: "ascending" | "descending",
-        ) => Promise<SearchResult>,
     ): void;
 
     /**
